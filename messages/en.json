@@ -1,0 +1,20 @@
+{
+    "invitationCategory": {
+        "name": {
+            "birthday": "Birthday (Anniversary)",
+            "wedding": "Wedding",
+            "kyz_uzatu": "Kyz uzatu",
+            "besik_toi": "Besik toi",
+            "tusaukeser": "Tusaukeser",
+            "sundet_toi": "Sundet toi"
+        },
+        "config": {
+            "groom": "#the groom's name",
+            "bride": "#the bride's name",
+            "owners": "#the organizers of the celebration",
+            "date": "#date of the event",
+            "place": "#place of the event",
+            "child": "#the child's(children's) name"
+        }
+    }
+}
