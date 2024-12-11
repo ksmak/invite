@@ -94,5 +94,6 @@ model InvitationCategory {
   name_ru         String
   name_en         String
   invitationCards InvitationCard[]
-  config          Json?
+  images          String[]
+  invitation_txt  String[]
 }
