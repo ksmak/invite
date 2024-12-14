@@ -18,8 +18,9 @@ import {
 import Color from '@tiptap/extension-color'
 import FontFamily from '@tiptap/extension-font-family'
 import { font_names } from '@/app/fonts'
-import { useRef } from 'react'
+import { MouseEvent, useRef } from 'react'
 import Underline from '@tiptap/extension-underline'
+import TextPanel from './text-panel'
 
 export default function EditTemplate ({}) {
   const ref = useRef<HTMLDivElement>(null)
@@ -39,6 +40,7 @@ export default function EditTemplate ({}) {
       Color,
       FontFamily
     ],
+    editable: false,
     content: '<h1>Құрметті қонақтар!</h1>'
   })
 
@@ -46,10 +48,10 @@ export default function EditTemplate ({}) {
     return null
   }
 
-  const handleClick = () => {
-    if (ref.current) {
-      ref.current.innerHTML = editor.getHTML()
-    }
+  const handleMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+    ref.current.style.left = e.pageX - ref.current.offsetWidth / 2 + 'px';
+    ref.current.style.top = e.pageY - ref.current.offsetHeight / 2 + 'px';
   }
 
   return (
@@ -211,11 +213,10 @@ export default function EditTemplate ({}) {
           />
         </div>
       </div>
-      <div className='w-full'>
-        <EditorContent editor={editor} />
-        <button onClick={handleClick}>View</button>
-        <div ref={ref} className='mt-10'></div>
+      <div className='absolute border top-48' onMouseDown={handleMove} ref={ref}>
+        <EditorContent editor={editor}/>
       </div>
+      <TextPanel />
     </div>
   )
 }

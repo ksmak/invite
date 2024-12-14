@@ -7,7 +7,7 @@ export default function StringField({
 }) {
     return (
         <span
-            className="underline underline-offset-4 decoration-blue-500 hover:cursor-pointer"
+            className="absolute underline underline-offset-4 decoration-blue-500 hover:cursor-pointer"
             onClick={handleClick}
         >
             {fieldVal}{' '}
