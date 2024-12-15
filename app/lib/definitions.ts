@@ -11,5 +11,5 @@ export type InvitationConfig = {
   foreground?: string;
   invitationText?: string;
   dateText?: string;
-  date?: Date;
+  date?: string;
 };
